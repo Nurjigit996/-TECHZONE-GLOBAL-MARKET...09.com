@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080611">
+
+    <title>TECHZONE GLOBAL MARKET</title>
+
+    <link rel="icon" href="images/favicon.svg">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="announcement">
+    ✨ TECHZONE GLOBAL MARKET — Your world of technology
+</div>
+
+<header class="header">
+
+    <a class="logo" href="#">
+        <span class="logo-symbol">TZ</span>
+        <span class="logo-text">
+            TECHZONE
+            <small>GLOBAL MARKET</small>
+        </span>
+    </a>
+
+    <nav class="navigation">
+        <a href="#home" data-i18n="home">Home</a>
+        <a href="#catalog" data-i18n="catalog">Catalog</a>
+        <a href="#about" data-i18n="about">About</a>
+        <a href="#contacts" data-i18n="contacts">Contacts</a>
+    </nav>
+
+    <div class="header-actions">
+
+        <select id="languageSelect" aria-label="Select language">
+            <option value="en">🇬🇧 English</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="ky">🇰🇬 Кыргызча</option>
+        </select>
+
+        <button class="icon-button" id="searchToggle" aria-label="Search">
+            ⌕
+        </button>
+
+        <button class="icon-button" id="favoritesButton" aria-label="Favorites">
+            ♡
+            <span class="counter" id="favoriteCount">0</span>
+        </button>
+
+        <button class="icon-button cart-button" id="cartButton" aria-label="Cart">
+            🛒
+            <span class="counter" id="cartCount">0</span>
+        </button>
+
+        <button class="icon-button" id="accountButton" aria-label="Account">
+            ♙
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- SEARCH -->
+
+    <section class="search-panel" id="searchPanel">
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="Search products..."
+        >
+        <button id="searchButton">Search</button>
+    </section>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                ✨ <span data-i18n="newEra">2026 — New Era</span>
+            </div>
+
+            <h1>
+                <span data-i18n="heroTitle">Everything you need.</span>
+                <strong data-i18n="heroAccent">One destination.</strong>
+            </h1>
+
+            <p data-i18n="heroDescription">
+                Technology, style and more in one place.
+            </p>
+
+            <a href="#catalog" class="gold-button">
+                <span data-i18n="shopNow">Shop Now</span>
+                <span class="button-arrow">➜</span>
+            </a>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <img
+                class="hero-product"
+                src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=900"
+                alt="Premium smartphone"
+            >
+
+        </div>
+
+        <div class="hero-glow"></div>
+
+    </section>
+
+
+    <!-- BENEFITS -->
+
+    <section class="benefits">
+
+        <div class="benefit">
+            <span>⚡</span>
+            <div>
+                <b data-i18n="delivery">Fast Delivery</b>
+                <small data-i18n="worldwide">Worldwide</small>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <span>🛡</span>
+            <div>
+                <b data-i18n="payment">Secure Payment</b>
+                <small>100% Safe</small>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <span>🎧</span>
+            <div>
+                <b data-i18n="support">24/7 Support</b>
+                <small data-i18n="alwaysHere">Always Here</small>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <span>🎁</span>
+            <div>
+                <b data-i18n="deals">Best Deals</b>
+                <small data-i18n="everyDay">Every Day</small>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <section class="section" id="categories">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">TECHZONE COLLECTION</span>
+                <h2 data-i18n="popularCategories">Popular Categories</h2>
+            </div>
+
+            <a href="#catalog" class="view-all" data-i18n="viewAll">
+                View all →
+            </a>
+        </div>
+
+        <div class="categories-grid" id="categoriesGrid"></div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="section catalog-section" id="catalog">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">DISCOVER SOMETHING NEW</span>
+                <h2 data-i18n="featuredProducts">Featured Products</h2>
+            </div>
+
+            <span class="product-total" id="productTotal">1000+ PRODUCTS</span>
+        </div>
+
+
+        <div class="catalog-toolbar">
+
+            <select id="categoryFilter">
+                <option value="all" data-i18n="allCategories">All categories</option>
+            </select>
+
+            <select id="sortFilter">
+                <option value="popular" data-i18n="popular">Popular</option>
+                <option value="cheap" data-i18n="priceLow">Price: low to high</option>
+                <option value="expensive" data-i18n="priceHigh">Price: high to low</option>
+                <option value="newest" data-i18n="newest">Newest</option>
+            </select>
+
+            <input
+                type="number"
+                id="maxPrice"
+                placeholder="Maximum price"
+                min="0"
+            >
+
+            <button class="filter-button" id="applyFilters" data-i18n="apply">
+                Apply
+            </button>
+
+        </div>
+
+
+        <div class="products-grid" id="productsGrid"></div>
+
+        <div class="load-more-container">
+            <button class="load-more" id="loadMore" data-i18n="loadMore">
+                Load More Products
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- PROMO BANNER -->
+
+    <section class="promo-banner" id="about">
+
+        <div class="promo-content">
+
+            <span class="section-label">TECHZONE EXCLUSIVE</span>
+
+            <h2 data-i18n="promoTitle">
+                More possibilities with TECHZONE
+            </h2>
+
+            <p data-i18n="promoDescription">
+                Discover technology, style and incredible offers.
+            </p>
+
+            <a href="#catalog" class="gold-button">
+                <span data-i18n="discover">Discover More</span>
+                ➜
+            </a>
+
+        </div>
+
+        <img
+            src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900"
+            alt="Technology collection"
+        >
+
+    </section>
+
+
+    <!-- REVIEWS -->
+
+    <section class="section reviews-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">CUSTOMER EXPERIENCE</span>
+                <h2 data-i18n="reviewsTitle">Customer Reviews</h2>
+            </div>
+        </div>
+
+        <div class="reviews-grid" id="reviewsGrid">
+
+            <article class="review-card">
+                <div class="stars">★★★★★</div>
+                <p data-i18n="reviewOne">
+                    Excellent service and beautiful products!
+                </p>
+                <b>Alex M.</b>
+                <small>Verified customer</small>
+            </article>
+
+            <article class="review-card">
+                <div class="stars">★★★★★</div>
+                <p data-i18n="reviewTwo">
+                    Very convenient store and modern design.
+                </p>
+                <b>Daniel K.</b>
+                <small>Verified customer</small>
+            </article>
+
+            <article class="review-card">
+                <div class="stars">★★★★★</div>
+                <p data-i18n="reviewThree">
+                    Great selection of technology.
+                </p>
+                <b>Sarah L.</b>
+                <small>Verified customer</small>
+            </article>
+
+        </div>
+
+        <button class="outline-button" id="writeReview" data-i18n="writeReview">
+            Write a Review
+        </button>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter">
+
+        <h2 data-i18n="newsletterTitle">
+            Join the TECHZONE world
+        </h2>
+
+        <p data-i18n="newsletterText">
+            Get updates about new products and special offers.
+        </p>
+
+        <form id="newsletterForm">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit" data-i18n="subscribe">Subscribe</button>
+        </form>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer" id="contacts">
+
+    <div class="footer-top">
+
+        <div>
+            <a class="logo" href="#">
+                <span class="logo-symbol">TZ</span>
+                <span class="logo-text">
+                    TECHZONE
+                    <small>GLOBAL MARKET</small>
+                </span>
+            </a>
+
+            <p data-i18n="footerText">
+                Technology of the future — today.
+            </p>
+        </div>
+
+        <div class="social-links">
+            <a href="#" aria-label="Telegram">✈</a>
+            <a href="#" aria-label="WhatsApp">☏</a>
+            <a href="#" aria-label="Instagram">◎</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 TECHZONE GLOBAL MARKET</span>
+        <span data-i18n="rights">All rights reserved.</span>
+    </div>
+
+</footer>
+
+
+<!-- CART DRAWER -->
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+    <div class="drawer-heading">
+        <h2 data-i18n="yourCart">Your Cart</h2>
+        <button class="close-button" id="closeCart">✕</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span data-i18n="total">Total</span>
+            <strong id="cartTotal">$0.00</strong>
+        </div>
+
+        <button class="checkout-button" id="checkoutButton" data-i18n="checkout">
+            Proceed to Checkout
+        </button>
+    </div>
+
+</aside>
+
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal" id="productModal">
+
+    <div class="modal-content">
+        <button class="close-button modal-close" id="closeProductModal">✕</button>
+        <div id="productDetails"></div>
+    </div>
+
+</div>
+
+
+<!-- ACCOUNT MODAL -->
+
+<div class="modal" id="accountModal">
+
+    <div class="modal-content account-content">
+
+        <button class="close-button modal-close" id="closeAccount">✕</button>
+
+        <h2 data-i18n="account">My Account</h2>
+
+        <form id="loginForm">
+
+            <input type="text" id="userName" placeholder="Your name" required>
+
+            <input type="email" id="userEmail" placeholder="Email address" required>
+
+            <input type="password" id="userPassword" placeholder="Password" required>
+
+            <button class="checkout-button" type="submit" data-i18n="login">
+                Sign in / Register
+            </button>
+
+        </form>
+
+        <p class="small-note" data-i18n="accountNote">
+            Demo account: connect a secure backend for real authentication.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- CHAT -->
+
+<button class="chat-button" id="chatButton" aria-label="Open chat">
+    💬
+</button>
+
+<div class="chat-window" id="chatWindow">
+
+    <div class="chat-heading">
+        <span>TECHZONE SUPPORT</span>
+        <button id="closeChat">✕</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+        <p class="support-message" data-i18n="chatWelcome">
+            Hello! How can we help you?
+        </p>
+    </div>
+
+    <form id="chatForm">
+        <input id="chatInput" placeholder="Write a message..." required>
+        <button type="submit">➤</button>
+    </form>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script src="data/products.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TECHZONE — Admin Panel</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+
+        <a href="../index.html" class="brand">
+            <span class="brand-icon">TZ</span>
+            <span>
+                TECHZONE
+                <small>ADMIN PANEL</small>
+            </span>
+        </a>
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+        <nav class="sidebar-nav">
+
+            <button class="nav-item active" data-page="dashboard">
+                <span>▦</span> Dashboard
+            </button>
+
+            <button class="nav-item" data-page="products">
+                <span>▣</span> Products
+            </button>
+
+            <button class="nav-item" data-page="categories">
+                <span>◈</span> Categories
+            </button>
+
+            <button class="nav-item" data-page="orders">
+                <span>▤</span> Orders
+            </button>
+
+            <button class="nav-item" data-page="customers">
+                <span>♙</span> Customers
+            </button>
+
+            <button class="nav-item" data-page="reviews">
+                <span>☆</span> Reviews
+            </button>
+
+            <button class="nav-item" data-page="settings">
+                <span>⚙</span> Settings
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="../index.html">← Open Store</a>
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1 id="pageTitle">Dashboard</h1>
+                <p>Welcome to TECHZONE management system.</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="admin-avatar">TZ</div>
+                <div>
+                    <b>Administrator</b>
+                    <small>Store Manager</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section class="admin-page active" id="dashboard">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>Total Products</span>
+                    <strong id="statProducts">0</strong>
+                    <small>Products in catalog</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Total Orders</span>
+                    <strong id="statOrders">0</strong>
+                    <small>All store orders</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Customers</span>
+                    <strong id="statCustomers">0</strong>
+                    <small>Registered customers</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Reviews</span>
+                    <strong id="statReviews">0</strong>
+                    <small>Customer reviews</small>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-panel">
+
+                <div class="panel-heading">
+                    <h2>Recent Orders</h2>
+                    <button class="secondary-button" data-go="orders">
+                        View All
+                    </button>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="recentOrders"></tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUCTS -->
+
+        <section class="admin-page" id="products">
+
+            <div class="page-toolbar">
+
+                <input
+                    type="search"
+                    id="productSearch"
+                    placeholder="Search products..."
+                >
+
+                <button class="primary-button" id="addProduct">
+                    + Add Product
+                </button>
+
+            </div>
+
+            <div class="dashboard-panel">
+
+                <div class="panel-heading">
+                    <h2>Product Management</h2>
+                    <span id="productCount">0 products</span>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="productsTable"></tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORIES -->
+
+        <section class="admin-page" id="categories">
+
+            <div class="dashboard-panel">
+
+                <div class="panel-heading">
+                    <h2>Categories</h2>
+                    <button class="primary-button" id="addCategory">
+                        + Add Category
+                    </button>
+                </div>
+
+                <div class="categories-admin-grid" id="categoriesTable"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ORDERS -->
+
+        <section class="admin-page" id="orders">
+
+            <div class="dashboard-panel">
+
+                <div class="panel-heading">
+                    <h2>All Orders</h2>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Email</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="ordersTable"></tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CUSTOMERS -->
+
+        <section class="admin-page" id="customers">
+
+            <div class="dashboard-panel">
+
+                <div class="panel-heading">
+                    <h2>Customers</h2>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Registration</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="customersTable"></tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REVIEWS -->
+
+        <section class="admin-page" id="reviews">
+
+            <div class="dashboard-panel">
+
+                <div class="panel-heading">
+                    <h2>Customer Reviews</h2>
+                </div>
+
+                <div id="reviewsTable"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SETTINGS -->
+
+        <section class="admin-page" id="settings">
+
+            <div class="dashboard-panel settings-panel">
+
+                <h2>Store Settings</h2>
+
+                <label>
+                    Store Name
+                    <input id="storeName" value="TECHZONE GLOBAL MARKET">
+                </label>
+
+                <label>
+                    Currency
+                    <select id="storeCurrency">
+                        <option value="USD">USD — Dollar</option>
+                        <option value="KGS">KGS — Som</option>
+                        <option value="RUB">RUB — Ruble</option>
+                    </select>
+                </label>
+
+                <label>
+                    Support Email
+                    <input id="supportEmail" placeholder="support@example.com">
+                </label>
+
+                <label>
+                    WhatsApp Number
+                    <input id="whatsappNumber" placeholder="996XXXXXXXXX">
+                </label>
+
+                <label>
+                    Instagram URL
+                    <input id="instagramUrl" placeholder="https://instagram.com/your-account">
+                </label>
+
+                <button class="primary-button" id="saveSettings">
+                    Save Settings
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- PRODUCT MODAL -->
+
+<div class="admin-modal" id="productModal">
+
+    <form class="modal-box" id="productForm">
+
+        <button type="button" class="modal-close" id="closeProduct">
+            ✕
+        </button>
+
+        <h2 id="productModalTitle">Add Product</h2>
+
+        <input type="hidden" id="editProductId">
+
+        <label>
+            Product Name
+            <input id="productName" required>
+        </label>
+
+        <label>
+            Category
+            <select id="productCategory"></select>
+        </label>
+
+        <label>
+            Price
+            <input id="productPrice" type="number" min="0" required>
+        </label>
+
+        <label>
+            Old Price
+            <input id="productOldPrice" type="number" min="0">
+        </label>
+
+        <label>
+            Image URL
+            <input id="productImage" required>
+        </label>
+
+        <label>
+            Stock
+            <input id="productStock" type="number" min="0" value="10">
+        </label>
+
+        <label>
+            Description
+            <textarea id="productDescription"></textarea>
+        </label>
+
+        <button class="primary-button" type="submit">
+            Save Product
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="admin-toast" id="adminToast"></div>
+
+<script src="../data/products.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
